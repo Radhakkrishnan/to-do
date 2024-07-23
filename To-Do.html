@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-Do List</title>
+</head>
+<style>
+    body{
+        font-family: cambria ;
+        background-color: rgba(242, 248, 247, 0.87);
+        display:flex;
+        align-items: center;
+        
+        height: 800px;
+    }
+    h1{
+        margin-bottom: 20px;
+    }
+    
+    #container{
+        max-width: 800px;
+        width: 100%;
+        margin:40px auto;
+        padding:40px;
+        margin-bottom: 20px;
+        background-color:rgb(204, 243, 240);
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(122, 120, 120, 0.849);
+    }
+
+    input{
+        padding:10px;
+        width:90%;
+        margin-right:5px 0;
+        border:0px solid rgb(183, 209, 231);
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+    input:focus{
+        outline:none;
+    }
+    #one{
+        padding :5px;
+        width:50px;
+        background-color:rgba(80, 145, 94, 0.911);
+
+
+        color:white;
+        border-radius: 6px;
+        border:none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    #one:hover{
+        background-color: rgb(100, 216, 152);
+    }
+
+    ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+    li{
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #d6fffb;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        
+    }
+
+    #two{
+        padding :5px;
+        width:50px;
+        background-color:rgba(92, 170, 109, 0.911);
+
+        color:white;
+        border-radius: 6px;
+        border:none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+    }
+
+    #two:hover{
+        background-color: rgb(233, 131, 131);
+    }
+
+</style>
+
+
+
+
+<body>
+    <div id="container">
+        <center>
+            <h1>TO-DO List</h1>
+            
+            <input type="text"placeholder="Enter your task" id="ip"  required>
+            
+            <button id ="one" onclick="ADD()">Add</button>
+            <ul id="list"></ul>
+                
+            
+        </center>
+
+    </div>
+
+            <script>
+                var ip = document.getElementById("ip")
+                var list = document.getElementById("list")
+
+                function ADD (){
+                    var data=ip.value.trim()
+                    var newlist= document.createElement("li")
+                    
+
+                    if(data==""){
+                        alert("Enter a task")
+                        ip.focus();
+                        return
+                    }
+
+                    newlist.innerHTML= data + "<button id='two'onclick='deleteitem(event)'>Done</button>"
+                    list.append(newlist)
+                    ip.focus();
+
+                    ip.value='';
+                
+                }
+
+                
+
+                function deleteitem(event){
+
+                    event.target.parentElement.remove()
+                    
+                    
+                }
+
+
+
+            </script>
+        
+    
+    
+</body>
+</html>
